@@ -4,9 +4,8 @@ import com.cjburkey.mineclone7d.module.GameModuleHandler;
 
 public final class GameLoopHandler {
 	
-	private static final long NANOS_PER_SECOND = 1000000000L;
 	private static final int TARGET_FPS = 60;
-	private static final long OPTIMAL_TIME = NANOS_PER_SECOND / TARGET_FPS;
+	private static final long OPTIMAL_TIME = Static.NANOS_PER_SECOND / TARGET_FPS;
 	
 	private boolean running = false;
 	private long lastLoopTime = System.nanoTime();
@@ -29,7 +28,7 @@ public final class GameLoopHandler {
 			handler.renderModules(instance);
 			instance.getWindow().pollEvents();
 			instance.getWindow().swapBuffers();
-			long timeout = (lastLoopTime - System.nanoTime() + OPTIMAL_TIME) / NANOS_PER_SECOND;
+			long timeout = (lastLoopTime - System.nanoTime() + OPTIMAL_TIME) / Static.NANOS_PER_SECOND;
 			if (timeout > 0) {
 				try {
 					Thread.sleep(timeout);

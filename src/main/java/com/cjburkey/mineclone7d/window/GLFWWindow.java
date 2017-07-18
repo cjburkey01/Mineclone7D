@@ -22,6 +22,7 @@ public final class GLFWWindow {
 		this.width = width;
 		this.height = height;
 		this.title = title;
+		this.vsync = vsync;
 	}
 	
 	public GLFWWindow(int width, int height, boolean vsync) {
@@ -58,7 +59,7 @@ public final class GLFWWindow {
 		caps = GL.createCapabilities();
 		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 		
-		sizeWindowToPartialMonitor(8, 9);
+		sizeWindowToPartialMonitor(2, 3);
 		centerOnScreen();
 		
 		glfwShowWindow(window);
